@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+        <script 
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+        </script>
+    <script>
+        $(document).ready(function(){
+        $("#dropdown").change(function(){
+        var selectedOption = $(this).children("option:selected").val();
+        if(selectedOption == 'B') {
+            $('#result').css('font-weight', 'bold');
+            $('#result').css('font-style', 'normal');
+            $('#result').css('text-decoration', 'none');
+            }
+        else if(selectedOption == 'I') {
+            $('#result').css('font-weight', 'normal');
+            $('#result').css('font-style', 'italic');
+            $('#result').css('text-decoration', 'none');
+            }
+        else if(selectedOption == 'U') {
+            $('#result').css('font-weight', 'normal');
+            $('#result').css('font-style', 'normal');
+            $('#result').css('text-decoration', 'underline');
+            }
+        else if(selectedOption == 'BIU') {
+             $('#result').css('font-weight', 'bold');
+             $('#result').css('font-style', 'italic');
+             $('#result').css('text-decoration', 'underline');
+             }
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <p>Type some message in the input field and select a format from the Dropdown:- 
+    </p>
+
+    <input type="text" id="textfield" name="textfield">
+    
+    <select id="dropdown">
+        <option value="none">Select format</option>
+        <option value="B">Bold</option>
+        <option value="I">Italic</option>
+        <option value="U">Underline</option>
+        <option value="BIU">Bold, Italic, Underline</option>
+    </select>
+    <br>
+    <p id="result"></p>
+
+    <script>
+        $('#textfield').on('input', function() {
+        $('#result').text($(this).val());
+        });
+    </script>
+
+</body>
+</html>
